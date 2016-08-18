@@ -1,0 +1,10 @@
+#!/bin/bash
+
+root=$(cd $(dirname "$0"/..); pwd -P)
+target="$HOME"
+
+source "$root"/scripts/functions.sh
+
+symlink bin
+symlink. vim
+symlink. gitignore gitconfig
