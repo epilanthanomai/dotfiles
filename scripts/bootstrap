@@ -5,6 +5,7 @@ target="$HOME"
 
 source "$root"/scripts/functions.sh
 
-symlink bin
+symlink. bash_profile
 symlink. vim
 symlink. gitignore gitconfig
+symlink bin
