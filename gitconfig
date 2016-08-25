@@ -3,4 +3,7 @@
 	name = Hope Ranker
 
 [core]
-  excludesfile = ~/.gitignore
+	excludesfile = ~/.gitignore
+
+[push]
+  	default = simple
