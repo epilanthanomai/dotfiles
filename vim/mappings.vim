@@ -1,5 +1,6 @@
 let mapleader = ','
 
+nnoremap <leader><tab> :tabnext<cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gv :Gitv<cr>
 nnoremap <leader>sip vip:sort<cr>
