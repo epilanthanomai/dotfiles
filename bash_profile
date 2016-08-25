@@ -1,4 +1,6 @@
 export PATH="$HOME"/bin:"$PATH"
+export EDITOR=vim
+
 
 function source_lib() {
   lib_sh="$HOME/.bash_profile_lib/$1.sh"
