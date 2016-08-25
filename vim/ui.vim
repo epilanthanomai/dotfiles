@@ -1,5 +1,7 @@
 set background=dark
 set relativenumber
+set hlsearch
+set incsearch
 
 set softtabstop=2
 set tabstop=2
