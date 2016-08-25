@@ -1,9 +1,7 @@
 [user]
-	email = hope.ranker@gmail.com
-	name = Hope Ranker
-
+  email = hope.ranker@gmail.com
+  name = Hope Ranker
 [core]
-	excludesfile = ~/.gitignore
-
+  excludesfile = ~/.gitignore
 [push]
-  	default = simple
+  default = simple
