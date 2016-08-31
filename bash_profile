@@ -9,8 +9,12 @@ function source_lib() {
   fi
 }
 
+source_lib prompt
+
 # run os-specific scripts
 source_lib `uname -o 2>/dev/null`
 source_lib `uname -s 2>/dev/null`
 
+
+# cleanup
 unset -f source_lib
