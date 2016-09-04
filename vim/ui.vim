@@ -10,3 +10,8 @@ set autoindent
 set expandtab
 set list
 set listchars=tab:»·,trail:·,nbsp:·
+
+set statusline=%f
+set statusline+=%(\ %y%{fugitive#statusline()}%m%)
+set statusline+=%=
+set statusline+=%l%V/%L\ %P
