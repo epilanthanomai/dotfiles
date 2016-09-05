@@ -12,6 +12,6 @@ set list
 set listchars=tab:»·,trail:·,nbsp:·
 
 set statusline=%f
-set statusline+=%(\ %y%{fugitive#statusline()}%m%)
+set statusline+=%(\ %y%m%)
 set statusline+=%=
-set statusline+=%l%V/%L\ %P
+set statusline+=%{fugitive#statusline()}\ \ %l%V/%L\ %P
