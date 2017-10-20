@@ -1,4 +1,4 @@
-export PATH=node_modules/.bin:"$HOME"/bin:"$PATH"
+export PATH=node_modules/.bin:.cabal-sandbox/bin:"$HOME"/bin:"$HOME"/.cabal/bin:"$PATH"
 export EDITOR=vim
 export NVM_DIR="$HOME/.nvm"
 

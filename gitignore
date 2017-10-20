@@ -1,3 +1,5 @@
 .*.s[a-w][a-z]
 .vagrant
 npm-debug.log
+.cabal-sandbox
+cabal.sandbox.config
