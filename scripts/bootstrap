@@ -9,4 +9,5 @@ symlink. bash_profile bash_profile_lib
 symlink. vim vimrc
 symlink. gitignore gitconfig
 symlink. vexrc
+symlink. ctags
 symlink bin
