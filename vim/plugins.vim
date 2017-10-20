@@ -8,6 +8,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'nelstrom/vim-markdown-folding'
 Plug 'nvie/vim-flake8'
 Plug 'scrooloose/NERDTree'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 
