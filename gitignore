@@ -1,5 +1,8 @@
-.*.s[a-w][a-z]
+.sw[a-z]
+.*.sw[a-z]
 .vagrant
 npm-debug.log
 .cabal-sandbox
 cabal.sandbox.config
+.pioenvs
+.netrwhist
