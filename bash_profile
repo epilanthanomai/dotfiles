@@ -1,6 +1,6 @@
-export PATH="$HOME"/bin:"$PATH"
+export PATH=node_modules/.bin:"$HOME"/bin:"$PATH"
 export EDITOR=vim
-
+export NVM_DIR="$HOME/.nvm"
 
 function source_lib() {
   lib_sh="$HOME/.bash_profile_lib/$1.sh"
@@ -18,3 +18,6 @@ source_lib `uname -s 2>/dev/null`
 
 # cleanup
 unset -f source_lib
+
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
