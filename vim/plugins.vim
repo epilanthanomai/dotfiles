@@ -2,6 +2,7 @@ call plug#begin('~/.vim-plugged')
 
 Plug 'MarcWeber/vim-addon-local-vimrc'
 Plug 'airblade/vim-gitgutter'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'gregsexton/gitv'
 Plug 'leafgarland/typescript-vim'
