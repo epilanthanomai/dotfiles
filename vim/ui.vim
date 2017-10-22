@@ -19,4 +19,4 @@ set statusline=%f
 set statusline+=%(\ %y%m%)
 set statusline+=%=
 set statusline+=%{fugitive#statusline()}
-set statusline+=\ \ %l/%L·%c%v\ %P
+set statusline+=\ \ %l/%L,%c%V\ %P
