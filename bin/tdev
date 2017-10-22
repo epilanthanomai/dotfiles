@@ -1,0 +1,149 @@
+#!/usr/bin/env python3
+
+import logging
+import subprocess
+import sys
+
+
+DEFAULT_COUNT = 2
+RIGHT_WIDTH = 80
+logger = logging.getLogger('tdev')
+
+
+def main():
+    logging.basicConfig(level=logging.WARNING)
+    pane_data = fetch_pane_data()
+    panes = parse_pane_data(pane_data)
+    if not panes:
+        sys.exit('Unable to manage panes')
+    logger.debug('panes: {!r}'.format(panes))
+    align(panes, DEFAULT_COUNT)
+
+
+# util
+
+
+def tmux(*args):
+    args = (
+            ['tmux'] +
+            list(str(arg) for arg in args)
+        )
+    logger.debug('executing: {!r}'.format(args))
+    output = subprocess.check_output(args)
+    logger.debug('output: {!r}'.format(output))
+    return str(output, sys.getdefaultencoding())
+
+
+def all_equal(vals):
+    if not vals:
+        return True
+    first = vals[0]
+    return all(v == first for v in vals[1:])
+
+
+# pane logic
+
+
+def fetch_pane_data():
+    fields = [
+            ('pane_id', str),
+            ('pane_top', int),
+            ('pane_left', int),
+            ('pane_height', int),
+            ('pane_width', int),
+        ]
+    pane_fmt = '\t'.join('#{{{field}}}'.format(field=f[0]) for f in fields)
+    pane_lines = tmux(
+            'list-panes',
+            '-F', pane_fmt
+        ).strip().split('\n')
+    raw_field_lines = [line.split('\t') for line in pane_lines]
+    tagged_field_lines = [list(zip(fields, raw_fields))
+                          for raw_fields in raw_field_lines]
+    return [dict((f[0], f[1](r)) for (f, r) in line)
+            for line in tagged_field_lines]
+
+
+def parse_pane_data(pane_data):
+    left_panes = list(filter(lambda p: p['pane_left'] == 0, pane_data))
+    right_panes = list(filter(lambda p: p['pane_left'] != 0, pane_data))
+
+    if len(left_panes) != 1:
+        return None
+
+    if not all_equal([p['pane_left'] for p in right_panes]):
+        return None
+
+    return {
+            'left': left_panes[0],
+            'right': right_panes,
+        }
+
+
+def align(panes, goal_count):
+    if len(panes['right']) == 0:
+        new_right = split_right(panes['left']['pane_id'])
+        right = [new_right]
+    else:
+        right = sorted(panes['right'], key=lambda p: p['pane_top'])
+        set_width(right[0])
+
+    current_count = len(right)
+    left_height = panes['left']['pane_height']
+    if goal_count > current_count:
+        height = get_right_height(left_height, goal_count)
+        set_height(right[:-1], height)
+        split_bottom(
+                right[-1]['pane_id'],
+                height,
+                goal_count - current_count)
+    else:
+        height = get_right_height(left_height, current_count)
+        set_height(right[:-1], height)
+
+
+def split_right(left_id):
+    lines = tmux(
+            'split-window', '-P', '-h',
+            '-F', '#{pane_id}',
+            '-t', left_id,
+            '-l', RIGHT_WIDTH,
+        )
+    return {
+            'pane_id': lines.strip(),
+        }
+
+
+def set_width(pane):
+    tmux(
+            'resize-pane',
+            '-t', pane['pane_id'],
+            '-x', RIGHT_WIDTH,
+        )
+
+
+def get_right_height(left_height, right_count):
+    # +/-1 to account for header lines
+    return int((left_height + 1) / right_count) - 1
+
+
+def set_height(panes, height):
+    for pane in panes:
+        tmux(
+                'resize-pane',
+                '-t', pane['pane_id'],
+                '-y', height,
+            )
+
+
+def split_bottom(bottom_id, height, count):
+    for _ in range(count):
+        tmux(
+                'split-window', '-v',
+                '-t', bottom_id,
+                '-l', height,
+            )
+
+
+if __name__ == '__main__':
+    main()
