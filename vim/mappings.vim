@@ -11,6 +11,7 @@ nnoremap <leader>gp :GitGutterPrevHunk<cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gv :Gitv<cr>
 nnoremap <leader>sip vip:sort<cr>
+nnoremap <leader>tf :NERDTreeFind<cr>
 nnoremap <leader>tr :NERDTreeToggle<cr>
 
 vnoremap <leader>so :sort<cr>
