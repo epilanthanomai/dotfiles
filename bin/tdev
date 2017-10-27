@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import logging
+import os
 import subprocess
 import sys
 
@@ -12,13 +13,8 @@ logger = logging.getLogger('tdev')
 
 def main():
     logging.basicConfig(level=logging.WARNING)
-    pane_data = fetch_pane_data()
-    panes = parse_pane_data(pane_data)
-    if not panes:
-        sys.exit('Unable to manage panes')
-    logger.debug('panes: {!r}'.format(panes))
-    align(panes, DEFAULT_COUNT)
-
+    rename_window()
+    update_panes()
 
 # util
 
@@ -41,7 +37,47 @@ def all_equal(vals):
     return all(v == first for v in vals[1:])
 
 
+# name logic
+
+def rename_window():
+    repo = find_repo_name()
+    if repo:
+        rename(repo)
+
+
+def find_repo_name():
+    pwd = os.getcwd()
+    for dirname in self_and_parents(pwd):
+        if is_repo(dirname):
+            return os.path.basename(dirname)
+
+
+def self_and_parents(path):
+    lastpath = None
+    while path != lastpath:
+        yield path
+        lastpath = path
+        path = os.path.basename(path)
+
+
+def is_repo(path):
+    return os.path.isdir(os.path.join(path, '.git'))
+
+
+def rename(newname):
+    tmux('rename-window', newname)
+
+
 # pane logic
+
+
+def update_panes():
+    pane_data = fetch_pane_data()
+    panes = parse_pane_data(pane_data)
+    if not panes:
+        sys.exit('Unable to manage panes')
+    logger.debug('panes: {!r}'.format(panes))
+    align(panes, DEFAULT_COUNT)
 
 
 def fetch_pane_data():
