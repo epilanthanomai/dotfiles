@@ -1,4 +1,4 @@
-export PATH=node_modules/.bin:.cabal-sandbox/bin:"$HOME"/bin:"$HOME"/.cabal/bin:"$PATH"
+# see PATH below in prepend_missing_path
 export EDITOR=vim
 export NVM_DIR="$HOME/.nvm"
 
@@ -9,12 +9,15 @@ function source_lib() {
   fi
 }
 
+source_lib path
 source_lib prompt
+
 
 # run os-specific scripts
 source_lib `uname -o 2>/dev/null`
 source_lib `uname -s 2>/dev/null`
 
+prepend_path_force node_modules/.bin:.cabal-sandbox/bin:"$HOME"/bin:"$HOME"/.cabal/bin
 
 # cleanup
 unset -f source_lib
