@@ -18,3 +18,14 @@ function prepend_path_force() {
   IFS="$OLDIFS"
   PATH="$USEPATH:$STRIPPATH"
 }
+
+# Mac /etc/profile calls /usr/libexec/path_helper, which forces system paths ahead
+# of any locally configured ones. programs like vex operate by starting a
+# subshell in an environment with a modified path. path_helper breaks this.
+# If we have a venv, force it to the front to fix the damange done by
+# path_helper :/
+function force_venv_path_front() {
+  if [ -n "$VIRTUAL_ENV" ] && have_path "$VIRTUAL_ENV/bin"; then
+    prepend_path_force "$VIRTUAL_ENV/bin"
+  fi  
+}

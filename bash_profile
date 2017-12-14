@@ -18,6 +18,7 @@ source_lib `uname -o 2>/dev/null`
 source_lib `uname -s 2>/dev/null`
 
 prepend_path_force node_modules/.bin:.cabal-sandbox/bin:"$HOME"/bin:"$HOME"/.cabal/bin
+force_venv_path_front
 
 # cleanup
 unset -f source_lib
