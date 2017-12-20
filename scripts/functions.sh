@@ -1,7 +1,11 @@
-symlink () {
+_symlink () {
+  local PREFIX="$1"
+  shift
+
   for i in "$@"; do
-    rootfile="$root"/"$i"
-    targetfile="$target"/"$i"
+    rootfile="$root/$i"
+    targetfile="$target/$PREFIX$i"
+    mkdir -p "$(dirname $targetfile)"
     if [ -L "$targetfile" ]; then
       rm "$targetfile"
     fi
@@ -9,13 +13,10 @@ symlink () {
   done
 }
 
+symlink () {
+  _symlink '' "$@"
+}
+
 symlink. () {
-  for i in "$@"; do
-    rootfile="$root"/"$i"
-    targetfile="$target"/."$i"
-    if [ -L "$targetfile" ]; then
-      rm "$targetfile"
-    fi
-    ln -sf "$rootfile" "$targetfile"
-  done
+  _symlink '.' "$@"
 }
