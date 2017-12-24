@@ -11,4 +11,5 @@ symlink. gitignore gitconfig
 symlink. vexrc
 symlink. ctags
 symlink. ipython/profile_default/ipython_config.py
+symlink. stack/config.yaml
 symlink bin
