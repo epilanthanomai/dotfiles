@@ -13,7 +13,7 @@ set autoindent
 set smartindent
 set expandtab
 set list
-set listchars=tab:»·,trail:·,nbsp:·
+set listchars=tab:-·,trail:·,nbsp:·
 set backspace=indent,eol,start
 
 set statusline=%f
