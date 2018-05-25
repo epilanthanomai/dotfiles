@@ -10,3 +10,4 @@ tags
 .ctags
 __pycache__
 .cache
+.DS_Store
