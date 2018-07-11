@@ -1,6 +1,7 @@
 # see PATH below in prepend_missing_path
 export EDITOR=vim
 export NVM_DIR="$HOME/.nvm"
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 function source_lib() {
   lib_sh="$HOME/.bash_profile_lib/$1.sh"
@@ -12,12 +13,11 @@ function source_lib() {
 source_lib path
 source_lib prompt
 
-
 # run os-specific scripts
 source_lib `uname -o 2>/dev/null`
 source_lib `uname -s 2>/dev/null`
 
-prepend_path_force node_modules/.bin:"$HOME"/.local/bin:"$HOME"/bin
+prepend_path_force node_modules/.bin:"$HOME"/.local/bin:"$HOME"/bin:"$(python3 -m site --user-base)"/bin
 force_venv_path_front
 
 # cleanup
