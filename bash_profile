@@ -2,6 +2,7 @@
 export EDITOR=vim
 export NVM_DIR="$HOME/.nvm"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
+export LC_ALL="$LANG"
 
 function source_lib() {
   lib_sh="$HOME/.bash_profile_lib/$1.sh"
