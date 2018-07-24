@@ -17,6 +17,8 @@ source_lib prompt
 source_lib `uname -o 2>/dev/null`
 source_lib `uname -s 2>/dev/null`
 
+source_lib local
+
 prepend_path_force node_modules/.bin:"$HOME"/.local/bin:"$HOME"/bin:"$(python3 -m site --user-base)"/bin
 force_venv_path_front
 
