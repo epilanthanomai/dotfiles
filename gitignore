@@ -11,4 +11,5 @@ tags
 __pycache__
 .cache
 .DS_Store
+.python-version
 /bash_profile_lib/local.sh

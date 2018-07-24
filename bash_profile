@@ -20,8 +20,13 @@ source_lib `uname -s 2>/dev/null`
 
 source_lib local
 
-prepend_path_force node_modules/.bin:"$HOME"/.local/bin:"$HOME"/bin:"$(python3 -m site --user-base)"/bin
-force_venv_path_front
+if command -v pyenv &>/dev/null; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
+
+# local bin needs to come before pyenv shim path.
+prepend_path_force $HOME"/.local/bin"
 
 # cleanup
 unset -f source_lib
