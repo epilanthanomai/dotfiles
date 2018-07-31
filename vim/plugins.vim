@@ -13,5 +13,6 @@ Plug 'supercollider/scvim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'Glench/Vim-Jinja2-Syntax'
 
 call plug#end()
