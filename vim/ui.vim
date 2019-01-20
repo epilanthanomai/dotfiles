@@ -21,3 +21,9 @@ set statusline+=%(\ %y%m%)
 set statusline+=%=
 set statusline+=%{fugitive#statusline()}
 set statusline+=\ \ %l/%L,%c%V\ %P
+
+highlight CursorLine cterm=NONE ctermbg=233  " gray18
+highlight CursorColumn cterm=NONE ctermbg=233  " gray18
+highlight Folded cterm=NONE ctermbg=0 " black
+set cursorline
+set cursorcolumn
