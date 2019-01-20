@@ -1,3 +1,4 @@
+runtime preplug.vim
 runtime plugins.vim
 runtime nerdtree.vim
 runtime ui.vim

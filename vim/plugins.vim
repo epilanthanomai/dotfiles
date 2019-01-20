@@ -14,5 +14,8 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'mileszs/ack.vim'
+Plug 'majutsushi/tagbar'
+Plug 'tmhedberg/SimpylFold'
 
 call plug#end()
