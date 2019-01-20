@@ -13,4 +13,5 @@ symlink. ctags.d
 symlink. iterm2
 symlink. ipython/profile_default/ipython_config.py
 symlink. stack/config.yaml
+symlink. tmux.conf
 symlink bin
