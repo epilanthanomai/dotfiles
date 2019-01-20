@@ -19,7 +19,7 @@
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~</string>
+	<string>~/Documents</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -54,15 +54,17 @@
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>-850 1686 620 392 -1080 558 1080 1897 </string>
+	<string>650 606 620 392 0 0 1920 1200 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>234 1281 918 452 0 900 1920 1057 </string>
+	<string>1949 714 937 512 1920 -393 1440 2537 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>43 35 410 325 0 0 1680 1027 </string>
+	<string>186 75 410 325 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 0 1680 1050 0 0 1680 1027 </string>
+	<string>51 64 410 275 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>0 0 1680 1050 0 0 1680 1027 </string>
+	<string>1920 -393 1440 2560 1920 -393 1440 2537 </string>
+	<key>NSWindow Frame iTerm Window 3</key>
+	<string>1920 -393 1440 2560 1920 -393 1440 2537 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1181,11 +1183,11 @@
 			<key>Name</key>
 			<string>tmux</string>
 			<key>Non Ascii Font</key>
-			<string>Monaco 12</string>
+			<string>Monaco 11</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Monaco 9</string>
+			<string>Monaco 8</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1197,7 +1199,7 @@
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
-			<integer>1000</integer>
+			<integer>0</integer>
 			<key>Selected Text Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -1231,7 +1233,7 @@
 			<key>Transparency</key>
 			<real>0.4266933692893401</real>
 			<key>Unlimited Scrollback</key>
-			<false/>
+			<true/>
 			<key>Use Bold Font</key>
 			<true/>
 			<key>Use Bright Bold</key>
@@ -1241,7 +1243,7 @@
 			<key>Use Non-ASCII Font</key>
 			<false/>
 			<key>Vertical Spacing</key>
-			<real>0.80000000000000004</real>
+			<real>0.80000001192092896</real>
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
@@ -1253,7 +1255,7 @@
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>C1687A19-FC57-40F2-817A-F78944E0BEE1</string>
+	<string>EFE0D051-CF15-4054-84D8-76B156D4C6C2</string>
 	<key>NoSyncNewWindowOrTabFromTmuxOpensTmux</key>
 	<true/>
 	<key>NoSyncNewWindowOrTabFromTmuxOpensTmux_selection</key>
@@ -1261,7 +1263,9 @@
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>545330611.95899606</real>
+	<real>553448678.95950699</real>
+	<key>PMPrintingExpandedStateForPrint2</key>
+	<false/>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -1297,25 +1301,27 @@
 	</dict>
 	<key>PrefsCustomFolder</key>
 	<string>/Users/hranker/.iterm2</string>
-	<key>SUAutomaticallyUpdate</key>
+	<key>Print In Black And White</key>
 	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final.xml?shard=33</string>
+	<string>https://iterm2.com/appcasts/final.xml?shard=6</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-04-25T14:18:18Z</date>
+	<date>2018-10-15T14:33:25Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>UseLionStyleFullscreen</key>
 	<false/>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.1.5</string>
+	<string>3.2.0</string>
 </dict>
 </plist>
