@@ -26,7 +26,7 @@ if command -v pyenv &>/dev/null; then
 fi
 
 # local bin needs to come before pyenv shim path.
-prepend_path_force node_modules/.bin:"$HOME"/.local/bin:"$HOME"/bin
+prepend_path_force node_modules/.bin:"$HOME"/.local/bin:"$HOME"/bin:"$HOME"/.cabal/bin
 
 # cleanup
 unset -f source_lib
