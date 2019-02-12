@@ -28,6 +28,9 @@ fi
 # local bin needs to come before pyenv shim path.
 prepend_path_force node_modules/.bin:"$HOME"/.local/bin:"$HOME"/bin:"$HOME"/.cabal/bin
 
+# if there are k8s configs then use them
+export KUBECONFIG=$(ls -df ~/.kube/config{,-*} 2>/dev/null | xargs echo | tr ' ' :)
+
 # cleanup
 unset -f source_lib
 
