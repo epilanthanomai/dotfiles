@@ -17,5 +17,6 @@ Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'mileszs/ack.vim'
 Plug 'majutsushi/tagbar'
 Plug 'tmhedberg/SimpylFold'
+Plug 'neovimhaskell/haskell-vim'
 
 call plug#end()
