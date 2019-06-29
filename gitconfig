@@ -5,3 +5,5 @@
   excludesfile = ~/.gitignore
 [push]
   default = simple
+[alias]
+  log1 = log --oneline
