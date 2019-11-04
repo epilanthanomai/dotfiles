@@ -7,3 +7,4 @@
   default = simple
 [alias]
   log1 = log --oneline
+  qamend = commit --amend --no-edit
