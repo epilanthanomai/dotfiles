@@ -5,6 +5,7 @@ nnoremap          <leader>/ :nohlsearch<cr>
 nnoremap          <leader>\ :Ack! 
 nnoremap          <leader><tab> :tabnext<cr>
 nnoremap          <leader>ag :Ack! -w <C-r><C-w><cr>
+nnoremap          <leader>bb :Black<cr>
 nnoremap          <leader>cc :set cursorline! cursorcolumn!<cr>
 nnoremap          <leader>f8 :call Flake8()<cr>
 nnoremap          <leader>gb :Gblame<cr>

@@ -2,3 +2,5 @@
 if executable('ag')
   let g:ackprg='ag --vimgrep'
 endif
+
+let g:black_virtualenv='~/.local/share/virtualenvs/vim-black'

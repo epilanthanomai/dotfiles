@@ -18,5 +18,6 @@ Plug 'mileszs/ack.vim'
 Plug 'majutsushi/tagbar'
 Plug 'tmhedberg/SimpylFold'
 Plug 'neovimhaskell/haskell-vim'
+Plug 'psf/black'
 
 call plug#end()
