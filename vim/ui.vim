@@ -25,6 +25,7 @@ set statusline+=\ \ %l/%L,%c%V\ %P
 
 highlight CursorLine cterm=NONE ctermbg=233  " gray18
 highlight CursorColumn cterm=NONE ctermbg=233  " gray18
-highlight Folded cterm=NONE ctermfg=8 ctermbg=NONE " dark gray / transparent
+highlight Folded cterm=NONE ctermfg=8 ctermbg=NONE  " dark gray / transparent
+highlight Todo cterm=NONE ctermfg=9 ctermbg=NONE  " red
 set cursorline
 set cursorcolumn
