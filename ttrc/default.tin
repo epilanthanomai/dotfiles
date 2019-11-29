@@ -1,4 +1,9 @@
-#script {echo "#variable home $HOME"}
+#function {getenv} {
+  #script _env {echo $%1};
+  #return $_env[1];
+}
+
+#variable home @getenv{HOME}
 #variable ttconf $home/.ttrc
 #variable ttvar $home/.tintin
 
