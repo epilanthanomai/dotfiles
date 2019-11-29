@@ -2,12 +2,11 @@ function have_path() {
   [[ ":$PATH:" == *":$1:"* ]]
 }
 
-function prepend_path_force() {
+function remove_path() {
   local OLDIFS="$IFS"
   local USEPATH="$1"
   local STRIPPATH=":$PATH:"
   local p
-  shift
 
   IFS=:
   for p in $USEPATH; do
@@ -16,7 +15,12 @@ function prepend_path_force() {
   STRIPPATH="${STRIPPATH#:}"
   STRIPPATH="${STRIPPATH%:}"
   IFS="$OLDIFS"
-  PATH="$USEPATH:$STRIPPATH"
+  PATH="$STRIPPATH"
+}
+
+function prepend_path_force() {
+  remove_path "$1"
+  PATH="$1:$PATH"
 }
 
 # Mac /etc/profile calls /usr/libexec/path_helper, which forces system paths ahead
