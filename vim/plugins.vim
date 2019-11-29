@@ -19,5 +19,6 @@ Plug 'majutsushi/tagbar'
 Plug 'tmhedberg/SimpylFold'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'psf/black'
+Plug 'vim-scripts/tintin.vim'
 
 call plug#end()

@@ -1,0 +1,3 @@
+#!/bin/bash
+. "$HOME/.bash_profile_lib/wrapper.sh"
+wrap_with_default_arg "$HOME/.ttrc/default.tin" "$0" "$@"

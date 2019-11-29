@@ -1,0 +1,27 @@
+#script {echo "#variable home $HOME"}
+#variable ttconf $home/.ttrc
+#variable ttvar $home/.tintin
+
+#function {exists} {
+  #script {[ -e "%1" ]; echo "#return $((!$?))"}
+}
+
+#function {logname} {
+  #format fname {%t} {%Y-%m-%dT%H:%M:%S.log};
+  #return $ttvar/%1/log/$fname;
+}
+
+#alias {*readmaybe %1} {#if @exists{%1} {#read %1}}
+#alias {*readconf %1} {*readmaybe $ttconf/%1}
+#alias {*readvar %1} {*readmaybe $ttvar/%1}
+#alias {*logto %1} {
+  #variable logname @logname{%1};
+  #system {mkdir -p $(dirname $logname)};
+  #log a @logname{%1};
+}
+
+#alias {*play %1} {
+  *logto %1;
+  *readvar %1.tin;
+  *readvar %1/play.tin;
+}
