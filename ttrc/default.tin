@@ -11,18 +11,36 @@
   #script {[ -e "%1" ]; echo "#return $((!$?))"}
 }
 
-#function {logname} {
-  #format fname {%t} {%Y-%m-%dT%H:%M:%S.log};
-  #return $ttvar/%1/log/$fname;
+#function {timestamp} {
+  #format _result {%t} {%Y-%m-%dT%H%M%S};
+  #return $_result;
 }
+
+#function {logname} {#return $ttvar/log/%1/@timestamp{}.log}
 
 #alias {*readmaybe %1} {#if @exists{%1} {#read %1}}
 #alias {*readconf %1} {*readmaybe $ttconf/%1}
 #alias {*readvar %1} {*readmaybe $ttvar/%1}
+
 #alias {*logto %1} {
   #variable logname @logname{%1};
   #system {mkdir -p $(dirname $logname)};
   #log a @logname{%1};
+}
+
+#alias {*readmap %1} {
+  #variable current_map %1;
+  #script _maplnk {cat $ttvar/$current_map/maplnk};
+  #map read $ttvar/$current_map/$_maplnk[1];
+  #map return;
+}
+
+#alias {*writemap} {
+  #variable _maplnk @timestamp{};
+  #variable _mapf $ttvar/$current_map/$_maplnk;
+  #system {mkdir -p $ttvar/$current_map};
+  #map write $_mapf;
+  #system {echo $_maplnk > $ttvar/$current_map/maplnk};
 }
 
 #alias {*play %1} {
