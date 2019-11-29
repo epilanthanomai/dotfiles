@@ -26,7 +26,6 @@
 }
 
 #alias {*play %1} {
-  *logto %1;
   *readvar %1.tin;
   *readvar %1/play.tin;
 }
