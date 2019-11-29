@@ -1,0 +1,8 @@
+#split 16 1
+#map flag vtmap on
+#map flag nofollow on
+
+#action {Come back soon!} {#map flag nofollow on}
+#action {Welcome to the world of Zalanthas.} {#map flag nofollow off}
+
+#action {You cannot go} {#map undo}
