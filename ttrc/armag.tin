@@ -6,3 +6,7 @@
 #action {Welcome to the world of Zalanthas.} {#map flag nofollow off}
 
 #action {You cannot go} {#map undo}
+
+#action {~^\e[38;5;11m%1\e[0m\e[38;5;208m [%2]\e[0m$} {
+  #map set roomname %1;
+}
