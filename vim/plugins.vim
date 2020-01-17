@@ -20,5 +20,6 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'psf/black'
 Plug 'vim-scripts/tintin.vim'
+Plug 'cespare/vim-toml'
 
 call plug#end()
