@@ -21,5 +21,6 @@ Plug 'neovimhaskell/haskell-vim'
 Plug 'psf/black'
 Plug 'vim-scripts/tintin.vim'
 Plug 'cespare/vim-toml'
+Plug 'jvirtanen/vim-hcl'
 
 call plug#end()
