@@ -174,14 +174,16 @@
 	<string>650 458 620 579 0 0 1920 1177 </string>
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>173 89 918 514 0 0 1920 1177 </string>
+	<key>NSWindow Frame UKCrashReporter</key>
+	<string>155 593 592 584 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>125 88 410 325 0 0 1920 1177 </string>
+	<string>25 46 410 325 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>1920 -559 1440 2560 1920 -559 1440 2537 </string>
+	<string>26 125 410 275 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>1920 -729 1430 2534 1920 -732 1440 2537 </string>
+	<string>0 0 1920 1200 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>1920 -729 1430 2534 1920 -732 1440 2537 </string>
+	<string>0 852 410 325 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
 	<string>1930 -693 1430 2498 1920 -732 1440 2537 </string>
 	<key>New Bookmarks</key>
@@ -1373,23 +1375,26 @@
 	</array>
 	<key>NoSyncAllAppVersions</key>
 	<array>
-		<string>3.2.9</string>
-		<string>3.3.0</string>
 		<string>3.3.2</string>
+		<string>3.2.9</string>
+		<string>3.3.5</string>
+		<string>3.3.0</string>
+		<string>3.3.7</string>
+		<string>3.3.6</string>
 	</array>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
 		<string>{{0, 0}, {1920, 1200}}</string>
 		<key>topLeft</key>
-		<string>{1229, 1088}</string>
+		<string>{644, 1012}</string>
 	</dict>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>EFE0D051-CF15-4054-84D8-76B156D4C6C2</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>5</integer>
+	<integer>23</integer>
 	<key>NoSyncNewWindowOrTabFromTmuxOpensTmux</key>
 	<true/>
 	<key>NoSyncNewWindowOrTabFromTmuxOpensTmux_selection</key>
@@ -1927,6 +1932,22 @@
 			</dict>
 			<dict>
 				<key>isTerminal</key>
+				<false/>
+				<key>name</key>
+				<string>title</string>
+				<key>nonterminalContext</key>
+				<integer>1</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>title</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
 				<string>tmuxWindowTitle</string>
@@ -2192,15 +2213,19 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-09-10T17:47:16Z</date>
+	<date>2019-12-14T02:03:26Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
 	<false/>
+	<key>ShowFullScreenTabBar</key>
+	<true/>
 	<key>ShowPaneTitles</key>
 	<false/>
 	<key>SoundForEsc</key>
 	<false/>
+	<key>UKCrashReporterLastCrashReportDate</key>
+	<real>1572711808</real>
 	<key>UseLionStyleFullscreen</key>
 	<false/>
 	<key>VisualIndicatorForEsc</key>
@@ -2210,6 +2235,6 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.3.2</string>
+	<string>3.3.7</string>
 </dict>
 </plist>
