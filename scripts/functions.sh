@@ -20,3 +20,8 @@ symlink () {
 symlink. () {
   _symlink '.' "$@"
 }
+
+detect-os () {
+  uname -s 2>/dev/null || \
+  uname -o 2>/dev/null
+}

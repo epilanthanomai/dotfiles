@@ -1,0 +1,15 @@
+/* Billboard's charts use overlays to hide content. Bypass those. */
+
+@-moz-document url-prefix(https://www.billboard.com/charts/) {
+  .chart-piano-overlay__attachment-point {
+    display: none    !important;  /* !important to override style attr */
+  }
+  .chart-page .hidden {
+    display: block   !important;  /* !important to override site css !important */
+
+    /* FIXME: Why is !important necessary here? Site css is just .chart-page
+     * .hidden, so our @-moz-document should give us more specificity here,
+     * right? Doesn't work, though, so resort to !important :'( */
+    height: auto     !important;
+  }
+}

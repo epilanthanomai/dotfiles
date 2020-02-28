@@ -5,6 +5,8 @@ target="$HOME"
 
 source "$root"/scripts/functions.sh
 
+os=$(detect-os)
+
 symlink. bash_profile bash_profile_lib
 symlink. vim vimrc
 symlink. gitignore gitconfig
@@ -17,3 +19,24 @@ symlink. tmux.conf
 symlink. tmux
 symlink. ttrc
 symlink bin
+
+
+# Find firefox profiles and add user config.
+FIREFOX_PROFILE_ROOTS=(\
+  .mozilla/firefox \
+  "Library/Application Support/Firefox/Profiles" \
+)
+
+for profile_root in "${FIREFOX_PROFILE_ROOTS[@]}"; do
+  for profile in "$target/$profile_root"/*.default; do
+    if [ -d "$profile" ]; then
+      # NOTE: Firefox on MacOS refuses to load profile chrome if it's
+      # symlinked :'( Rsync it in there, but symlink elsewhere
+      if [ "$os" = "Darwin" ]; then
+        rsync -r firefox/chrome "$profile"/
+      else
+        ln -sf "$root"/firefox/chrome "$profile"/
+      fi
+    fi
+  done
+done
