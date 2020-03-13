@@ -7,7 +7,7 @@ source "$root"/scripts/functions.sh
 
 os=$(detect-os)
 
-symlink. bash_profile bash_profile_lib
+symlink. bash_profile bash_profile_lib bashrc
 symlink. vim vimrc
 symlink. gitignore gitconfig
 symlink. vexrc
