@@ -18,6 +18,7 @@ symlink. stack/config.yaml
 symlink. tmux.conf
 symlink. tmux
 symlink. ttrc
+symlink. touchmode
 symlink bin
 
 

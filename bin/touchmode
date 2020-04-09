@@ -1,0 +1,47 @@
+#!/usr/bin/bash
+
+prog=$(basename $0)
+: ${SYNCLIENT:=$(which synclient 2>/dev/null)}
+if [ -z "$SYNCLIENT" ]; then
+  echo "$prog: not found: synclient" >&2
+  exit 1
+elif [ ! -x "$SYNCLIENT" ]; then
+  echo "$prog: not executable: $SYNCLIENT" >&2
+  exit 1
+fi
+
+hostname=$(hostname)
+: ${TOUCHMODE_ROOT:=~/.touchmode}
+: ${TOUCHMODE_PATH:=$TOUCHMODE_ROOT/$hostname:$TOUCHMODE_ROOT}
+
+load_from_file() {
+  modefile="$1"
+  awk '/ = /{print $1 "=" $3}' <"$modefile" | xargs "$SYNCLIENT"
+}
+
+load_from_path() {
+  IFS=:
+  for tmdir in $TOUCHMODE_PATH; do
+    if [ -r "$tmdir/$mode" ]; then
+      load_from_file "$tmdir/$mode"
+      return 0
+    fi
+  done
+  return 1
+}
+
+errors=0
+no_mode() {
+  echo "$prog: undefined mode: $mode" >&2
+  ((errors++))
+}
+
+for mode in "$@"; do
+  if [[ "$mode" = */* ]]; then
+    [ -r "$mode" ] && load_from_file "$mode" || no_mode
+  else
+    load_from_path "$mode" || no_mode
+  fi
+done
+
+[ $errors == 0 ]
