@@ -9,7 +9,8 @@ import sys
 
 DEFAULT_COUNT = 2
 RIGHT_WIDTH = 80
-logger = logging.getLogger('tdev')
+logger = logging.getLogger("tdev")
+
 
 def main():
     args = parse_args(sys.argv[1:])
@@ -17,24 +18,29 @@ def main():
     rename_window()
     update_panes(args.num_panes)
 
+
 # util
 
+
 def parse_args(argv):
-    parser = argparse.ArgumentParser(description='Configure tmux panes.')
-    parser.add_argument('-n', '--num-panes', metavar='NUM',
-            dest='num_panes', type=int, default=2,
-            help='number of right panes')
+    parser = argparse.ArgumentParser(description="Configure tmux panes.")
+    parser.add_argument(
+        "-n",
+        "--num-panes",
+        metavar="NUM",
+        dest="num_panes",
+        type=int,
+        default=2,
+        help="number of right panes",
+    )
     return parser.parse_args(argv)
 
 
 def tmux(*args):
-    args = (
-            ['tmux'] +
-            list(str(arg) for arg in args)
-        )
-    logger.debug('executing: {!r}'.format(args))
+    args = ["tmux"] + list(str(arg) for arg in args)
+    logger.debug("executing: {!r}".format(args))
     output = subprocess.check_output(args)
-    logger.debug('output: {!r}'.format(output))
+    logger.debug("output: {!r}".format(output))
     return str(output, sys.getdefaultencoding())
 
 
@@ -46,6 +52,7 @@ def all_equal(vals):
 
 
 # name logic
+
 
 def rename_window():
     repo = find_repo_name()
@@ -69,11 +76,11 @@ def self_and_parents(path):
 
 
 def is_repo(path):
-    return os.path.isdir(os.path.join(path, '.git'))
+    return os.path.isdir(os.path.join(path, ".git"))
 
 
 def rename(newname):
-    tmux('rename-window', newname)
+    tmux("rename-window", newname)
 
 
 # pane logic
@@ -83,64 +90,58 @@ def update_panes(right_panes):
     pane_data = fetch_pane_data()
     panes = parse_pane_data(pane_data)
     if not panes:
-        sys.exit('Unable to manage panes')
-    logger.debug('panes: {!r}'.format(panes))
+        sys.exit("Unable to manage panes")
+    logger.debug("panes: {!r}".format(panes))
     align(panes, right_panes)
 
 
 def fetch_pane_data():
     fields = [
-            ('pane_id', str),
-            ('pane_top', int),
-            ('pane_left', int),
-            ('pane_height', int),
-            ('pane_width', int),
-        ]
-    pane_fmt = '\t'.join('#{{{field}}}'.format(field=f[0]) for f in fields)
-    pane_lines = tmux(
-            'list-panes',
-            '-F', pane_fmt
-        ).strip().split('\n')
-    raw_field_lines = [line.split('\t') for line in pane_lines]
-    tagged_field_lines = [list(zip(fields, raw_fields))
-                          for raw_fields in raw_field_lines]
-    return [dict((f[0], f[1](r)) for (f, r) in line)
-            for line in tagged_field_lines]
+        ("pane_id", str),
+        ("pane_top", int),
+        ("pane_left", int),
+        ("pane_height", int),
+        ("pane_width", int),
+    ]
+    pane_fmt = "\t".join("#{{{field}}}".format(field=f[0]) for f in fields)
+    pane_lines = tmux("list-panes", "-F", pane_fmt).strip().split("\n")
+    raw_field_lines = [line.split("\t") for line in pane_lines]
+    tagged_field_lines = [
+        list(zip(fields, raw_fields)) for raw_fields in raw_field_lines
+    ]
+    return [dict((f[0], f[1](r)) for (f, r) in line) for line in tagged_field_lines]
 
 
 def parse_pane_data(pane_data):
-    left_panes = list(filter(lambda p: p['pane_left'] == 0, pane_data))
-    right_panes = list(filter(lambda p: p['pane_left'] != 0, pane_data))
+    left_panes = list(filter(lambda p: p["pane_left"] == 0, pane_data))
+    right_panes = list(filter(lambda p: p["pane_left"] != 0, pane_data))
 
     if len(left_panes) != 1:
         return None
 
-    if not all_equal([p['pane_left'] for p in right_panes]):
+    if not all_equal([p["pane_left"] for p in right_panes]):
         return None
 
     return {
-            'left': left_panes[0],
-            'right': right_panes,
-        }
+        "left": left_panes[0],
+        "right": right_panes,
+    }
 
 
 def align(panes, goal_count):
-    if len(panes['right']) == 0:
-        new_right = split_right(panes['left']['pane_id'])
+    if len(panes["right"]) == 0:
+        new_right = split_right(panes["left"]["pane_id"])
         right = [new_right]
     else:
-        right = sorted(panes['right'], key=lambda p: p['pane_top'])
+        right = sorted(panes["right"], key=lambda p: p["pane_top"])
         set_width(right[0])
 
     current_count = len(right)
-    left_height = panes['left']['pane_height']
+    left_height = panes["left"]["pane_height"]
     if goal_count > current_count:
         height = get_right_height(left_height, goal_count)
         set_height(right[:-1], height)
-        split_bottom(
-                right[-1]['pane_id'],
-                height,
-                goal_count - current_count)
+        split_bottom(right[-1]["pane_id"], height, goal_count - current_count)
     else:
         height = get_right_height(left_height, current_count)
         set_height(right[:-1], height)
@@ -148,22 +149,25 @@ def align(panes, goal_count):
 
 def split_right(left_id):
     lines = tmux(
-            'split-window', '-P', '-h',
-            '-F', '#{pane_id}',
-            '-t', left_id,
-            '-l', RIGHT_WIDTH,
-        )
+        "split-window",
+        "-P",
+        "-h",
+        "-F",
+        "#{pane_id}",
+        "-t",
+        left_id,
+        "-l",
+        RIGHT_WIDTH,
+    )
     return {
-            'pane_id': lines.strip(),
-        }
+        "pane_id": lines.strip(),
+    }
 
 
 def set_width(pane):
     tmux(
-            'resize-pane',
-            '-t', pane['pane_id'],
-            '-x', RIGHT_WIDTH,
-        )
+        "resize-pane", "-t", pane["pane_id"], "-x", RIGHT_WIDTH,
+    )
 
 
 def get_right_height(left_height, right_count):
@@ -174,20 +178,16 @@ def get_right_height(left_height, right_count):
 def set_height(panes, height):
     for pane in panes:
         tmux(
-                'resize-pane',
-                '-t', pane['pane_id'],
-                '-y', height,
-            )
+            "resize-pane", "-t", pane["pane_id"], "-y", height,
+        )
 
 
 def split_bottom(bottom_id, height, count):
     for _ in range(count):
         tmux(
-                'split-window', '-v',
-                '-t', bottom_id,
-                '-l', height,
-            )
+            "split-window", "-v", "-t", bottom_id, "-l", height,
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
