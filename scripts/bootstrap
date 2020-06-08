@@ -9,6 +9,7 @@ os=$(detect-os)
 
 symlink. bash_profile bash_profile_lib bashrc profile
 symlink. ctags.d
+symlink. ghci
 symlink. gitignore gitconfig
 symlink. ipython/profile_default/ipython_config.py
 symlink. iterm2
