@@ -1,3 +1,5 @@
 MaxSpeed = 6
+TapButton3 = 2
+ClickFinger3 = 2
 PalmMinWidth = 5
 PalmMinZ = 50
