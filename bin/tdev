@@ -8,7 +8,10 @@ import sys
 
 
 DEFAULT_COUNT = 2
-RIGHT_WIDTH = 80
+RIGHT_PROPORTION = 1/3
+RIGHT_CHUNK = 20
+RIGHT_MINIMUM = 80
+
 logger = logging.getLogger("tdev")
 
 
@@ -147,6 +150,19 @@ def align(panes, goal_count):
         set_height(right[:-1], height)
 
 
+def get_window_width():
+    window_width_output = tmux("display-message", "-p", "#{window_width}")
+    return int(window_width_output)
+
+
+def calculate_right_width():
+    window_width = get_window_width()
+    proportional_width = window_width * RIGHT_PROPORTION
+    # round it down to a multiple of RIGHT_CHUNK
+    target_width = int(proportional_width / RIGHT_CHUNK) * RIGHT_CHUNK
+    return max(target_width, RIGHT_MINIMUM)
+
+
 def split_right(left_id):
     lines = tmux(
         "split-window",
@@ -157,7 +173,7 @@ def split_right(left_id):
         "-t",
         left_id,
         "-l",
-        RIGHT_WIDTH,
+        calculate_right_width(),
     )
     return {
         "pane_id": lines.strip(),
@@ -166,7 +182,7 @@ def split_right(left_id):
 
 def set_width(pane):
     tmux(
-        "resize-pane", "-t", pane["pane_id"], "-x", RIGHT_WIDTH,
+        "resize-pane", "-t", pane["pane_id"], "-x", calculate_right_width(),
     )
 
 
