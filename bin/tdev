@@ -166,6 +166,7 @@ def calculate_right_width():
 def split_right(left_id):
     lines = tmux(
         "split-window",
+        "-d",
         "-P",
         "-h",
         "-F",
@@ -201,7 +202,7 @@ def set_height(panes, height):
 def split_bottom(bottom_id, height, count):
     for _ in range(count):
         tmux(
-            "split-window", "-v", "-t", bottom_id, "-l", height,
+            "split-window", "-d", "-v", "-t", bottom_id, "-l", height,
         )
 
 
