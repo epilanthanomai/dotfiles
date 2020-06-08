@@ -14,3 +14,4 @@ __pycache__
 .python-version
 /bash_profile_lib/local*.sh
 .vimrc
+/env
