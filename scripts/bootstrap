@@ -8,17 +8,17 @@ source "$root"/scripts/functions.sh
 os=$(detect-os)
 
 symlink. bash_profile bash_profile_lib bashrc profile
-symlink. vim vimrc
-symlink. gitignore gitconfig
-symlink. vexrc
 symlink. ctags.d
-symlink. iterm2
+symlink. gitignore gitconfig
 symlink. ipython/profile_default/ipython_config.py
+symlink. iterm2
 symlink. stack/config.yaml
-symlink. tmux.conf
 symlink. tmux
-symlink. ttrc
+symlink. tmux.conf
 symlink. touchmode
+symlink. ttrc
+symlink. vexrc
+symlink. vim vimrc
 symlink bin
 
 
