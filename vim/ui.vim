@@ -24,7 +24,7 @@ set statusline+=%{fugitive#statusline()}
 set statusline+=\ \ %l/%L,%c%V\ %P
 
 highlight CursorLine cterm=NONE ctermbg=233  " gray18
-highlight CurorLineNr cterm=NONE ctermfg=11 ctermbg=NONE  " yellow
+highlight CursorLineNr cterm=NONE ctermfg=11 ctermbg=NONE  " yellow
 highlight CursorColumn cterm=NONE ctermbg=233  " gray18
 highlight Folded cterm=NONE ctermfg=166 ctermbg=NONE  " rust / transparent
 highlight LineNr cterm=NONE ctermfg=100 ctermbg=NONE  " dark yellow
