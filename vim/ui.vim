@@ -33,7 +33,7 @@ highlight StatusLine ctermfg=8 ctermbg=10  " dark gray / green (reversed)
 highlight StatusLineNC ctermfg=8 ctermbg=7  " dark gray / light gray (reversed)
 highlight Todo cterm=NONE ctermfg=9 ctermbg=NONE  " red
 highlight VertSplit ctermbg=8 ctermfg=0  " dark gray / black  (reversed)
-
+highlight diffFile ctermfg=202  " medium orange
 
 set cursorline
 set cursorcolumn
