@@ -14,6 +14,7 @@ nnoremap          <leader>gn :GitGutterNextHunk<cr>
 nnoremap          <leader>gp :GitGutterPrevHunk<cr>
 nnoremap <silent> <leader>gs :Gstatus<cr>:15wincmd _<cr>:setlocal winfixheight<cr>
 nnoremap          <leader>gv :Gitv<cr>
+nnoremap          <leader>R :source ~/.vimrc<cr>
 nnoremap          <leader>sip vip:sort<cr>
 nnoremap          <leader>ta :TagbarToggle<cr>
 nnoremap          <leader>tf :NERDTreeFind<cr>
