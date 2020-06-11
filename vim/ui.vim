@@ -1,6 +1,4 @@
 set background=dark
-set number
-set relativenumber
 set hlsearch
 set incsearch
 set nojoinspaces
@@ -37,3 +35,12 @@ highlight diffFile ctermfg=202  " medium orange
 
 set cursorline
 set cursorcolumn
+
+augroup NumberActiveWindow
+  autocmd!
+  autocmd WinEnter * set number
+  autocmd WinEnter * set relativenumber
+
+  autocmd WinLeave * set nonumber
+  autocmd WinLeave * set norelativenumber
+augroup END
