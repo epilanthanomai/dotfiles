@@ -4,6 +4,7 @@ nnoremap          <leader>* :let @/="\\<" . expand("<cword>") . "\\>"<cr>:set hl
 nnoremap          <leader>/ :nohlsearch<cr>
 nnoremap          <leader>\ :Ack! 
 nnoremap          <leader><tab> :tabnext<cr>
+nnoremap          <leader><C-p>t :CtrlPTag<cr>
 nnoremap          <leader>ag :Ack! -w <C-r><C-w><cr>
 nnoremap          <leader>bb :Black<cr>
 nnoremap          <leader>cc :set cursorline! cursorcolumn!<cr>
