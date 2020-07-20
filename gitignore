@@ -7,7 +7,7 @@ cabal.sandbox.config
 .pioenvs
 .netrwhist
 tags
-.ctags
+.ctags*
 __pycache__
 .cache
 .DS_Store
