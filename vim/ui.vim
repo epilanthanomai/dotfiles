@@ -15,6 +15,10 @@ set list
 set listchars=tab:-·,trail:·,nbsp:·
 set backspace=indent,eol,start
 
+set title
+set titlestring=vim:%F
+set t_ts=]2; t_fs=\\
+
 set statusline=%f
 set statusline+=%(\ %y%m%)
 set statusline+=%=
