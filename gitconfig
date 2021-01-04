@@ -10,3 +10,5 @@
 [alias]
   log1 = log --oneline
   qamend = commit --amend --no-edit
+[init]
+  defaultBranch = main
