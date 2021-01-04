@@ -3,8 +3,10 @@
   name = Hope Ranker
 [core]
   excludesfile = ~/.gitignore
+[pull]
+  ff = only
 [push]
-   default = current
+  default = current
 [alias]
   log1 = log --oneline
   qamend = commit --amend --no-edit
