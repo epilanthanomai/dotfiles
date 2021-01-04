@@ -44,9 +44,6 @@ set signcolumn=yes
 
 augroup NumberActiveWindow
   autocmd!
-  autocmd WinEnter * set number
-  autocmd WinEnter * set relativenumber
-
-  autocmd WinLeave * set nonumber
-  autocmd WinLeave * set norelativenumber
+  autocmd BufEnter * set number relativenumber
+  autocmd BufLeave * set nonumber norelativenumber
 augroup END
