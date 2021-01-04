@@ -17,4 +17,7 @@ source_lib path_env
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
 
+# Configure ghcup
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
+
 source_lib bootstrap_cleanup
