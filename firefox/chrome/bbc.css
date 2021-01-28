@@ -1,0 +1,5 @@
+@-moz-document url-prefix(https://www.bbc.com/) {
+  #sign_in, #sign_in-bg {
+    display: none;
+  }
+}
