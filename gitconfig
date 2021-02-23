@@ -9,6 +9,7 @@
   default = current
 [alias]
   log1 = log --oneline
+  lr = log --left-right
   qamend = commit --amend --no-edit
 [init]
   defaultBranch = main
