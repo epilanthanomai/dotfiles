@@ -13,7 +13,7 @@ nnoremap          <leader>gb :Gblame<cr>
 nnoremap          <leader>gd :Gdiff<cr>
 nnoremap          <leader>gn :GitGutterNextHunk<cr>
 nnoremap          <leader>gp :GitGutterPrevHunk<cr>
-nnoremap <silent> <leader>gs :Gstatus<cr>:15wincmd _<cr>:setlocal winfixheight<cr>
+nnoremap <silent> <leader>gs :Git<cr>
 nnoremap          <leader>gv :Gitv<cr>
 nnoremap          <leader>R :source ~/.vimrc<cr>
 nnoremap          <leader>sip vip:sort<cr>
