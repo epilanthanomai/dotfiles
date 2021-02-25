@@ -8,9 +8,13 @@ import sys
 
 
 DEFAULT_COUNT = 2
-RIGHT_PROPORTION = 1/3
+LEFT_PROPORTION = 2 / 3
 RIGHT_CHUNK = 20
 RIGHT_MINIMUM = 80
+LEFT_TREE_WIDTH = 30
+LEFT_GUTTER_WIDTH = 5
+LEFT_TEXT_MAXIMUM = 100
+LEFT_TAG_WIDTH = 40
 
 logger = logging.getLogger("tdev")
 
@@ -155,12 +159,28 @@ def get_window_width():
     return int(window_width_output)
 
 
+def round_down_to_chunk(raw_size, chunk):
+    return int(raw_size / chunk) * chunk
+
+
 def calculate_right_width():
     window_width = get_window_width()
-    proportional_width = window_width * RIGHT_PROPORTION
-    # round it down to a multiple of RIGHT_CHUNK
-    target_width = int(proportional_width / RIGHT_CHUNK) * RIGHT_CHUNK
-    return max(target_width, RIGHT_MINIMUM)
+
+    left_proportional = window_width * LEFT_PROPORTION
+    # +1 for border lines
+    left_soft_maximum = (
+        (LEFT_TREE_WIDTH + 1)
+        + LEFT_GUTTER_WIDTH
+        + LEFT_TEXT_MAXIMUM
+        + (LEFT_TAG_WIDTH + 1)
+    )
+    left_target = min(left_proportional, left_soft_maximum)
+
+    right_target = window_width - left_target
+    right_rounded = round_down_to_chunk(right_target, RIGHT_CHUNK)
+    right_width = max(right_rounded, RIGHT_MINIMUM)
+
+    return right_width
 
 
 def split_right(left_id):
@@ -183,7 +203,11 @@ def split_right(left_id):
 
 def set_width(pane):
     tmux(
-        "resize-pane", "-t", pane["pane_id"], "-x", calculate_right_width(),
+        "resize-pane",
+        "-t",
+        pane["pane_id"],
+        "-x",
+        calculate_right_width(),
     )
 
 
@@ -195,14 +219,24 @@ def get_right_height(left_height, right_count):
 def set_height(panes, height):
     for pane in panes:
         tmux(
-            "resize-pane", "-t", pane["pane_id"], "-y", height,
+            "resize-pane",
+            "-t",
+            pane["pane_id"],
+            "-y",
+            height,
         )
 
 
 def split_bottom(bottom_id, height, count):
     for _ in range(count):
         tmux(
-            "split-window", "-d", "-v", "-t", bottom_id, "-l", height,
+            "split-window",
+            "-d",
+            "-v",
+            "-t",
+            bottom_id,
+            "-l",
+            height,
         )
 
 
