@@ -16,3 +16,4 @@ __pycache__
 .vimrc
 /env*
 /.env*
+*.sqlite3
