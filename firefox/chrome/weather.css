@@ -1,10 +1,11 @@
 /* Bypass weather.com modal. */
 
 @-moz-document url-prefix(https://weather.com/) {
-  div[class^="sp_message_"], div[class^="sp_veil"] {
+  div[class^="sp_message_"], div[class^="sp_veil"],
+  .tp-modal, .tp-backdrop {
     display: none !important;
   }
   html, body {
-    overflow-y: visible !important;
+    overflow: visible !important;
   }
 }
