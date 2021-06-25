@@ -10,6 +10,7 @@
 [alias]
   log1 = log --oneline
   lr = log --left-right
+  lfirst = log --oneline --first-parent
   qamend = commit --amend --no-edit
 [init]
   defaultBranch = main
