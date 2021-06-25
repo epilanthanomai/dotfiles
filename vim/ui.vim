@@ -42,6 +42,8 @@ set cursorline
 set cursorcolumn
 set signcolumn=yes
 
+let g:xml_syntax_folding=1
+
 augroup NumberActiveWindow
   autocmd!
   autocmd BufEnter * set number relativenumber
