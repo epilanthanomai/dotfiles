@@ -1,0 +1,11 @@
+@-moz-document url-prefix(https://www.ajc.com/) {
+  body {
+    overflow: visible !important;
+  }
+  main {
+    display: block !important;
+  }
+  .c-blocker-msg {
+    display: none !important;
+  }
+}
