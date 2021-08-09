@@ -24,6 +24,7 @@ set statusline+=%(\ %y%m%)
 set statusline+=%=
 set statusline+=%{fugitive#statusline()}
 set statusline+=\ \ %l/%L,%c%V\ %P
+set laststatus=2  " always show status line
 
 highlight CursorColumn cterm=NONE ctermbg=233  " gray18
 highlight CursorLine cterm=NONE ctermbg=233  " gray18
