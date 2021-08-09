@@ -43,6 +43,7 @@ set cursorline
 set cursorcolumn
 set signcolumn=yes
 
+set foldmethod=syntax
 let g:xml_syntax_folding=1
 
 augroup NumberActiveWindow
