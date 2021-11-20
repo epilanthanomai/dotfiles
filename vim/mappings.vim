@@ -13,8 +13,8 @@ nnoremap          <leader>ag :Ack! -w <C-r><C-w><cr>
 nnoremap          <leader>bb :Black<cr>
 nnoremap          <leader>cc :set cursorline! cursorcolumn!<cr>
 nnoremap          <leader>f8 :call Flake8()<cr>
-nnoremap          <leader>gb :Gblame<cr>
-nnoremap          <leader>gd :Gdiff<cr>
+nnoremap          <leader>gb :Git blame<cr>
+nnoremap          <leader>gd :Gdiffsplit<cr>
 nnoremap          <leader>gh :GitGutterStageHunk<cr>
 nnoremap          <leader>gn :GitGutterNextHunk<cr>
 nnoremap          <leader>gp :GitGutterPrevHunk<cr>
