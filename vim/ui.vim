@@ -1,6 +1,7 @@
 set background=dark
 set hlsearch
 set incsearch
+set nowrapscan
 set nojoinspaces
 set textwidth=76
 set nowrap
