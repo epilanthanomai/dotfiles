@@ -8,7 +8,7 @@
 [push]
   default = current
 [alias]
-  log1 = log --oneline
+  log1 = log --oneline --reverse
   lr = log --left-right
   lfirst = log --oneline --first-parent
   qamend = commit --amend --no-edit
