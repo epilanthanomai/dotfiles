@@ -26,25 +26,14 @@ set statusline+=%{fugitive#statusline()}
 set statusline+=\ \ %l/%L,%c%V\ %P
 set laststatus=2  " always show status line
 
-highlight CursorColumn cterm=NONE ctermbg=233  " gray18
-highlight CursorLine cterm=NONE ctermbg=233  " gray18
-highlight CursorLineNr cterm=NONE ctermfg=11 ctermbg=NONE  " yellow
-highlight Folded cterm=NONE ctermfg=136 ctermbg=NONE  " rust / transparent
-highlight LineNr cterm=NONE ctermfg=100 ctermbg=NONE  " dark yellow
-highlight NonText cterm=NONE ctermfg=8  " dark gray
-highlight SignColumn ctermbg=NONE
-highlight StatusLine ctermfg=8 ctermbg=10  " dark gray / green (reversed)
-highlight StatusLineNC ctermfg=8 ctermbg=7  " dark gray / light gray (reversed)
-highlight Todo cterm=NONE ctermfg=9 ctermbg=NONE  " red
-highlight VertSplit ctermbg=8 ctermfg=0  " dark gray / black  (reversed)
-highlight diffFile ctermfg=202  " medium orange
-
 set cursorline
 set cursorcolumn
 set signcolumn=yes
 
 set foldmethod=syntax
 let g:xml_syntax_folding=1
+
+colorscheme epilanthanomai
 
 augroup NumberActiveWindow
   autocmd!
