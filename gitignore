@@ -17,4 +17,5 @@ __pycache__
 /env*
 /.env*
 *.sqlite3
+*.egg-info
 /.vim-spell
