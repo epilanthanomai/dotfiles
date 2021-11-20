@@ -2,6 +2,7 @@
 while read _path; do
   prepend_path_force "$_path"
 done <<-EOF
+  $HOME/.cargo/bin
   $HOME/.npm-packages/bin
   $HOME/.ghcup/bin
   $HOME/.cabal/bin
