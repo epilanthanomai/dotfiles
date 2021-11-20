@@ -1,4 +1,3 @@
-set background=dark
 set hlsearch
 set incsearch
 set nowrapscan
