@@ -1,1 +1,11 @@
-prepend_path_force node_modules/.bin:"$HOME"/.local/bin:"$HOME"/bin:"$HOME"/.cabal/bin:"$HOME"/.ghcup/bin"$HOME"/.npm-packages/bin
+# NOTE: prepend means these end up reversed in the actual constructed PATH
+while read _path; do
+  prepend_path_force "$_path"
+done <<-EOF
+  $HOME/.npm-packages/bin
+  $HOME/.ghcup/bin
+  $HOME/.cabal/bin
+  $HOME/bin
+  $HOME/.local/bin
+  node_modules/.bin
+EOF
