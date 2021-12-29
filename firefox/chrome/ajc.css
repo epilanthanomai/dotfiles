@@ -5,7 +5,7 @@
   main {
     display: block !important;
   }
-  .c-blocker-msg {
+  .c-blocker-msg, .c-blocker-overlay {
     display: none !important;
   }
 }
