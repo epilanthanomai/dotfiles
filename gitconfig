@@ -7,6 +7,8 @@
   ff = only
 [push]
   default = current
+[merge]
+  conflictstyle = diff3
 [alias]
   log1 = log --oneline --reverse
   lr = log --left-right

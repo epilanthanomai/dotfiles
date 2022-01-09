@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+case "$1" in
+  -* | "")
+    ;;
+  *)
+    first="$1";
+    shift
+    ;;
+esac
+
+case "$1" in
+  -* | "")
+    ;;
+  *)
+    second="$1";
+    shift
+    ;;
+esac
+
+eval $(git find-merge-range $first $second)
+echo  # vim needs this to recognize this as a git diff
+git diff "$base".."$target" "$@"

@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+case "$1" in
+  -* | "")
+    ;;
+  *)
+    first="$1";
+    shift
+    ;;
+esac
+
+case "$1" in
+  -* | "")
+    ;;
+  *)
+    second="$1";
+    shift
+    ;;
+esac
+
+eval $(git find-merge-range $first $second)
+git log1 "$base".."$target" "$@"

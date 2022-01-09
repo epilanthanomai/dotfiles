@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+: ${DOT_GIT_MAIN:=.git-main}
+
+guess_upstream_remote_names=origin
+guess_main_branch_names="main master"
+
+find_git_main () (
+  while true; do
+    pwd="$(pwd)"
+    dot_git_main="$pwd/$DOT_GIT_MAIN"
+    if [ -r "$dot_git_main" ]; then
+      cat "$dot_git_main"
+      return 0
+    fi
+    if [ "$pwd" == "/" ]; then
+      return 1
+    fi
+    cd ..
+  done
+)
+
+find_remote_head () {
+  for remote in $guess_upstream_remote_names; do
+    ref="$remote/HEAD"
+    rev=$(git rev-parse "$ref" 2>/dev/null)
+    if [ $? == 0 ]; then
+      echo "$ref"
+      return 0
+    fi
+  done
+  return 1
+}
+
+find_local_ref () {
+  for branch in $guess_main_branch_names; do
+    rev=$(git rev-parse "$branch" 2>/dev/null)
+    if [ $? == 0 ]; then
+      echo "$branch"
+      return 0
+    fi
+  done
+  return 1
+}
+
+find_git_main || find_remote_head || find_local_ref
