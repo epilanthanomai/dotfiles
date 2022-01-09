@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+ESC=$(printf '\x1b')
+exec sed -E "s/$ESC\[[0-9;]+[A-Za-z]//g"
