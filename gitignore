@@ -12,6 +12,7 @@
 .vagrant
 .vimrc
 /.env*
+/.local
 /.vim-spell
 /bash_profile_lib/local*.sh
 /env*

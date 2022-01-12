@@ -9,4 +9,5 @@ done <<-EOF
   $HOME/bin
   $HOME/.local/bin
   node_modules/.bin
+  .local/bin
 EOF
