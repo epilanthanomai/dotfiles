@@ -14,7 +14,7 @@ source_lib `uname -o 2>/dev/null`
 source_lib `uname -s 2>/dev/null`
 
 source_lib path_defs
-source_lib pyenv_defs
+source_lib pyenv_env
 source_lib path_env
 
 source_lib local_env
