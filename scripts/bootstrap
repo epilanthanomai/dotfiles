@@ -8,6 +8,7 @@ source "$root"/scripts/functions.sh
 os=$(detect-os)
 
 symlink. bash_profile bash_profile_lib bashrc profile
+symlink. config/i3
 symlink. ctags.d
 symlink. ghci
 symlink. gitignore gitconfig
