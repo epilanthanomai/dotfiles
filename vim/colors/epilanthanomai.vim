@@ -24,6 +24,7 @@ highlight Constant cterm=NONE ctermfg=213  " light magenta
 highlight NonText cterm=NONE ctermfg=8  " dark gray
 highlight Search ctermbg=20 ctermfg=226 term=bold  " pale yellow / dark blue
 highlight SpellBad ctermbg=NONE ctermfg=9  " bright red
+highlight SpellCap ctermbg=NONE ctermfg=34  " dark green
 highlight SpellLocal ctermbg=NONE ctermfg=75  " mid blue-gray
 highlight Todo cterm=NONE ctermfg=9 ctermbg=NONE  " red
 
