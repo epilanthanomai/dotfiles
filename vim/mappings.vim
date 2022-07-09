@@ -7,6 +7,7 @@ nnoremap          <leader><tab> :tabnext<cr>
 nnoremap          <leader><C-p>b :CtrlPBuffer<cr>
 nnoremap          <leader><C-p>t :CtrlPTag<cr>
 nnoremap          <leader><C-]>l :tselect <C-r><C-w><cr>
+nnoremap          <leader>R :source ~/.vimrc<cr>
 nnoremap          <leader>Tr :silent !ctags -R .<cr><C-l>
 nnoremap          <leader>TR :exec("silent !(cd '" . expand("%:h") . "'; ctags *)")<cr><C-l>
 nnoremap          <leader>ag :Ack! -w <C-r><C-w><cr>
@@ -20,7 +21,7 @@ nnoremap          <leader>gn :GitGutterNextHunk<cr>
 nnoremap          <leader>gp :GitGutterPrevHunk<cr>
 nnoremap <silent> <leader>gs :Git<cr>
 nnoremap          <leader>gv :Gitv<cr>
-nnoremap          <leader>R :source ~/.vimrc<cr>
+nnoremap          <leader>ma :make<cr>:cwindow<cr>:cc<cr>
 nnoremap          <leader>sip vip:sort<cr>
 nnoremap          <leader>ta :TagbarToggle<cr>
 nnoremap          <leader>tf :NERDTreeFind<cr>
