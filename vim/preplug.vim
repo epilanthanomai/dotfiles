@@ -4,3 +4,6 @@ if executable('ag')
 endif
 
 let g:black_virtualenv='~/.local/share/virtualenvs/vim-black'
+
+let g:markdown_fold_style = 'nested'
+let g:markdown_fold_override_foldtext = 0
