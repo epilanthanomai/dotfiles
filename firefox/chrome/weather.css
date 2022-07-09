@@ -5,7 +5,4 @@
   .tp-modal, .tp-backdrop {
     display: none !important;
   }
-  html, body {
-    overflow: visible !important;
-  }
 }

@@ -1,7 +1,7 @@
 /* see https://www.userchrome.org/ */
 
-@import 'ajc.css';
-@import 'bbc.css';
+@import 'modals.css';
+
 @import 'billboard.css';
 @import 'decaturish.css';
 @import 'weather.css';
