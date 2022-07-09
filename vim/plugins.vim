@@ -22,5 +22,6 @@ Plug 'psf/black'
 Plug 'vim-scripts/tintin.vim'
 Plug 'cespare/vim-toml'
 Plug 'epilanthanomai/vim-hcl'
+Plug 'ludovicchabant/vim-gutentags'
 
 call plug#end()
