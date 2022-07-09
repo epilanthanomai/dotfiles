@@ -20,3 +20,5 @@ __pycache__
 cabal.sandbox.config
 npm-debug.log
 tags
+tags.lock
+tags.temp
