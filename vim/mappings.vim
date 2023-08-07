@@ -17,8 +17,8 @@ nnoremap          <leader>f8 :call Flake8()<cr>
 nnoremap          <leader>gb :Git blame<cr>
 nnoremap          <leader>gd :Gdiffsplit<cr>
 nnoremap          <leader>gh :GitGutterStageHunk<cr>
-nnoremap          <leader>gn :GitGutterNextHunk<cr>
-nnoremap          <leader>gp :GitGutterPrevHunk<cr>
+nnoremap          <leader>gp :Git push<cr>
+nnoremap          <leader>gP :Git push -f<cr>
 nnoremap <silent> <leader>gs :Git<cr>
 nnoremap          <leader>gv :Gitv<cr>
 nnoremap          <leader>ma :make<cr>:cwindow<cr>:cc<cr>
