@@ -23,5 +23,7 @@ Plug 'vim-scripts/tintin.vim'
 Plug 'cespare/vim-toml'
 Plug 'epilanthanomai/vim-hcl'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'bfrg/vim-jq'
+Plug 'aklt/plantuml-syntax'
 
 call plug#end()
