@@ -4,16 +4,17 @@ runtime colors/default.vim
 highlight CursorColumn cterm=NONE ctermbg=233  " gray18
 highlight CursorLine cterm=NONE ctermbg=233  " gray18
 
-" static ui elements
+" ui elements
 highlight LineNr cterm=NONE ctermfg=100 ctermbg=NONE  " dark yellow
 highlight CursorLineNr cterm=NONE ctermfg=11 ctermbg=NONE  " yellow
 highlight SignColumn ctermbg=NONE
 highlight VertSplit ctermbg=8 ctermfg=0  " dark gray / black  (reversed)
+highlight SpecialKey ctermfg=21  " dark blue (used by listchars)
 highlight StatusLine ctermfg=8 ctermbg=10  " dark gray / green (reversed)
 highlight StatusLineNC ctermfg=8 ctermbg=7  " dark gray / light gray (reversed)
 
 " text blocks
-highlight DiffAdd ctermbg=18  " dark blue
+highlight DiffAdd ctermbg=27  " dark blue
 highlight DiffDelete ctermfg=241 ctermbg=18  " gray / dark blue
 highlight DiffChange ctermbg=18  " dark blue
 highlight DiffText cterm=bold ctermbg=89  " plum
@@ -29,6 +30,5 @@ highlight SpellLocal ctermbg=NONE ctermfg=75  " mid blue-gray
 highlight Todo cterm=NONE ctermfg=9 ctermbg=NONE  " red
 
 highlight diffFile ctermfg=202  " medium orange
-
 
 let colors_name = "epilanthanomai"
