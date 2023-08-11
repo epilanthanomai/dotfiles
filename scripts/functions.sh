@@ -4,10 +4,15 @@ _symlink () {
 
   for i in "$@"; do
     rootfile="$root/$i"
-    targetfile="$target/$PREFIX$i"
+    relativetarget="$PREFIX$i"
+    targetfile="$target/$relativetarget"
     mkdir -p "$(dirname $targetfile)"
     if [ -L "$targetfile" ]; then
       rm "$targetfile"
+    fi
+    if [ -d "$targetfile" ]; then
+      echo "skipping $relativetarget: directory exists" >&2
+      continue
     fi
     ln -sf "$rootfile" "$targetfile"
   done
