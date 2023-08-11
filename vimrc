@@ -1,5 +1,7 @@
+set runtimepath^=~/.vim-local
+set packpath^=~/.vim-local
+
 runtime preplug.vim
-runtime plugins.vim
 runtime black.vim
 runtime nerdtree.vim
 runtime tagbar.vim
