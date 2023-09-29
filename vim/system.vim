@@ -14,3 +14,7 @@ set wildignore+=*/*.egg-info/*
 set spell
 set spellfile=~/.local/vim-spell/personal.utf-8.add
 set spelllang=en_us
+
+filetype on
+filetype plugin on
+filetype indent on
