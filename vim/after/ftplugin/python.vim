@@ -1,2 +1,2 @@
-set spell
-set spelloptions+=camel
+setlocal spell
+setlocal spelloptions+=camel
