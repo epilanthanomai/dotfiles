@@ -14,6 +14,7 @@ highlight StatusLine ctermfg=8 ctermbg=10  " dark gray / green (reversed)
 highlight StatusLineNC ctermfg=8 ctermbg=7  " dark gray / light gray (reversed)
 
 " text blocks
+highlight Comment cterm=NONE ctermfg=12  " pale blue
 highlight DiffAdd ctermbg=27  " dark blue
 highlight DiffDelete ctermfg=241 ctermbg=18  " gray / dark blue
 highlight DiffChange ctermbg=18  " dark blue
