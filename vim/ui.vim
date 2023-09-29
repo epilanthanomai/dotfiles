@@ -35,6 +35,11 @@ set signcolumn=yes
 set foldmethod=syntax
 let g:xml_syntax_folding=1
 
+let g:markdown_fenced_languages=[]
+let g:markdown_fenced_languages+=['mermaid']
+let g:markdown_fenced_languages+=['python']
+let g:markdown_fenced_languages+=['sh']
+
 colorscheme epilanthanomai
 
 augroup NumberActiveWindow
